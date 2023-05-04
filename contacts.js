@@ -37,7 +37,7 @@ function addContact(name, email, phone) {
   fs.readFile(contactsPath, "utf-8", (err, data) => {
     const newUser = { id: uniqid(), name, email, phone };
     const res = [...JSON.parse(data), newUser];
-    fs.writeFile(contactsPath, JSON.stringify(res, null, 2), (err) => {
+    fs.writeFile(contactsPath, JSON.stringify(res, null, "\t"), (err) => {
       if (err) console.log("Error: ", err);
       else console.log("User added successfully", newUser);
     });
